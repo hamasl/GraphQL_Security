@@ -7,8 +7,10 @@ class User {
     }
 
     addFriend(user) {
-        this.friends.add(user);
-        user.friends.add(this);
+        if (user.id != this.id) {
+            this.friends.add(user);
+            user.friends.add(this);
+        }
     }
 }
 
