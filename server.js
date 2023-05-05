@@ -1,8 +1,8 @@
 "use strict";
 
-import { buildSchema } from "graphql";
-import express from "express";
-import { graphqlHTTP } from "express-graphql"
+const express = require("express")
+const { buildSchema } = require("graphql")
+const { graphqlHTTP } = require("express-graphql")
 
 const PORT = 8080;
 
@@ -10,7 +10,7 @@ const app = express();
 
 const schema = buildSchema(`
     type Query {
-        hello: string
+        hello: String
     }
 `)
 
