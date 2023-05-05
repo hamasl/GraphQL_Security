@@ -1,22 +1,17 @@
 "use strict";
 
-const express = require("express")
-const { buildSchema } = require("graphql")
-const { graphqlHTTP } = require("express-graphql")
+import express from "express";
+import { graphqlHTTP } from "express-graphql";
+import { schema } from "./src/schema.js";
+import { root } from "./src/root.js"
 
 const PORT = 8080;
 
 const app = express();
 
-const schema = buildSchema(`
-    type Query {
-        hello: String
-    }
-`)
 
-const root = {
-    hello: () => "Hello World!"
-}
+
+
 
 app.use((req, _res, next) => {
     console.log(`Request: ${req.url}`);
