@@ -16,3 +16,11 @@ kill:
 
 inspect:
 	docker exec -it $(name) /bin/bash
+
+rerun:
+	$(MAKE) kill
+	$(MAKE) run
+
+restart:
+	$(MAKE) kill
+	$(MAKE) app
