@@ -16,7 +16,7 @@ app:
 kill:
 	docker kill $(name)
 
-inspect:
+exec:
 	docker exec -it $(name) /bin/bash
 
 rerun:

@@ -13,6 +13,10 @@ const schema = buildSchema(`
         users(first: Int): [User]
         login(username: String!, password: String!): Boolean
     }
+
+    type Mutation {
+        changePassword(username: String!, newPassword!): Boolean
+    }
 `);
 
 export { schema };
