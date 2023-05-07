@@ -20,7 +20,7 @@ app.use(
   graphqlHTTP({
     schema: schema,
     rootValue: root,
-    graphiql: true,
+    graphiql: ENV.ALLOW_GRAPHIQL,
     validationRules: VALIDATION_RULES,
   })
 );

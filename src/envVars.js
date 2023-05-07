@@ -10,7 +10,9 @@ dotenv.config();
 
 const ENV = {
   ALLOW_INTROSPECTION: false,
+  ALLOW_GRAPHIQL: false,
   DEPTH_LIMIT: -1,
+  USERS_LIMIT: Number.MAX_SAFE_INTEGER,
 };
 
 const handleBoolean = (key, variable) => {

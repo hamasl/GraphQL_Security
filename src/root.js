@@ -7,12 +7,11 @@ const root = {
     return answer;
   },
   users: (args) => {
-    if (args.first && args.first > 0) {
-      return userRepo.slice(0, args.first);
-    } else if (!args.first) {
-      return userRepo;
+    const first = args.first ?? Number.MAX_SAFE_INTEGER;
+    if (first < 0) {
+      throw Error(`Limit cannot be less than 0`);
     }
-    throw Error(`Limit cannot be less than 0`);
+    return userRepo.slice(0, Math.min(first, ENV.USERS_LIMIT));
   },
   /*IMPORTANT: This is a horrible way to do authentication 
     and only done here because it is not the scope of the task
