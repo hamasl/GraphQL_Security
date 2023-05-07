@@ -4,6 +4,8 @@ import express from "express";
 import { graphqlHTTP } from "express-graphql";
 import { schema } from "./src/schema.js";
 import { root } from "./src/root.js";
+import { printENV } from "./src/envVars.js";
+import VALIDATION_RULES from "./src/validation.js";
 
 const PORT = 8080;
 
@@ -19,8 +21,11 @@ app.use(
     schema: schema,
     rootValue: root,
     graphiql: true,
+    validationRules: VALIDATION_RULES,
   })
 );
 
-app.listen({ port: PORT });
-console.log(`Listening on port: ${PORT}`);
+app.listen({ port: PORT }, () => {
+  console.log(`Listening on port: ${PORT}`);
+  printENV();
+});

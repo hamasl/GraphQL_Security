@@ -1,6 +1,5 @@
 import { buildSchema } from "graphql";
 
-
 const schema = buildSchema(`
     type User {
         id: Int
@@ -15,7 +14,7 @@ const schema = buildSchema(`
     }
 
     type Mutation {
-        changePassword(username: String!, newPassword!): Boolean
+        changePassword(username: String!, newPassword: String!): Boolean
     }
 `);
 
