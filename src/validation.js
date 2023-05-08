@@ -4,7 +4,7 @@ import { ENV } from "./envVars.js";
 
 let validationRules = [];
 
-if (ENV.ALLOW_INTROSPECTION) {
+if (!ENV.ALLOW_INTROSPECTION) {
   validationRules.push(NoSchemaIntrospectionCustomRule);
 }
 if (ENV.DEPTH_LIMIT > 0) {
