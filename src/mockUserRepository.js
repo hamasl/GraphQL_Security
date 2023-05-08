@@ -1,13 +1,21 @@
 import { User } from "./user.js";
 import randomstring from "randomstring";
-import {ENV} from "./envVars.js"
+import { ENV } from "./envVars.js";
 
 const userRepo = [];
 
 const genUsers = () => {
   for (let i = 0; i < ENV.NUM_OF_USERS; i++) {
     userRepo.push(
-      new User(i + 1, `user${i + 1}`, randomstring.generate(ENV.GENERATED_PASSWORD_LENGTH))
+      new User(
+        i + 1,
+        `user${i + 1}`,
+        randomstring.generate({
+          charset: "alphabetic",
+          capitalization: "lowercase",
+          length: ENV.GENERATED_PASSWORD_LENGTH,
+        })
+      )
     );
   }
 };
