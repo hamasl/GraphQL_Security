@@ -26,6 +26,8 @@ app.use(
 );
 
 app.listen({ port: PORT }, () => {
-  console.log(`Listening on port: ${PORT}`);
+  console.log(`Listening on port: ${PORT}\n`);
   printENV();
+  //Just to get a line break
+  console.log();
 });
