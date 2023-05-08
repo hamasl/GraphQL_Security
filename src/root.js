@@ -1,5 +1,5 @@
 import { userRepo } from "./mockUserRepository.js";
-import {ENV} from "./envVars.js"
+import { ENV } from "./envVars.js";
 
 const root = {
   user: (args) => {
@@ -28,7 +28,7 @@ const root = {
     const userIndex = userRepo.findIndex((u) => u.username === args.username);
     console.log(userIndex);
     if (userIndex === -1) return false;
-    console.log(JSON.stringify(userRepo[userIndex]))
+    console.log(JSON.stringify(userRepo[userIndex]));
     userRepo[userIndex].password = args.newPassword;
     return true;
   },
