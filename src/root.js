@@ -2,7 +2,6 @@ import { userRepo } from "./mockUserRepository.js";
 
 const root = {
   user: (args) => {
-    console.log(args.id);
     let answer = userRepo.find((u) => u.id === args.id);
     return answer;
   },
@@ -21,10 +20,16 @@ const root = {
     if (!user) return false;
     return user.password === args.password;
   },
+  /*IMPORTANT: This is a horrible way to do password changing 
+  and only done here because it is not the scope of the task
+  look up a proper and recent for your language/framework way to do it online*/
   changePassword: (args) => {
-    const user = userRepo.find((u) => u.username === args.username);
-    if (!user) return false;
-    user.password = args.password;
+    const userIndex = userRepo.findIndex((u) => u.username === args.username);
+    console.log(userIndex);
+    if (userIndex === -1) return false;
+    console.log(JSON.stringify(userRepo[userIndex]))
+    userRepo[userIndex].password = args.newPassword;
+    return true;
   },
 };
 

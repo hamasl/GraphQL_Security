@@ -4,7 +4,7 @@ import express from "express";
 import { graphqlHTTP } from "express-graphql";
 import { schema } from "./src/schema.js";
 import { root } from "./src/root.js";
-import { printENV } from "./src/envVars.js";
+import { ENV, printENV } from "./src/envVars.js";
 import VALIDATION_RULES from "./src/validation.js";
 
 const PORT = 8080;
@@ -12,7 +12,7 @@ const PORT = 8080;
 const app = express();
 
 app.use((req, _res, next) => {
-  console.log(`Request: ${req.url}`);
+  console.log(`Request: ${req.url}${JSON.stringify(req.params)}`);
   next();
 });
 app.use(

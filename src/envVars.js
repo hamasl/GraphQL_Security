@@ -8,11 +8,16 @@ dotenv.config();
     getting a potential logical error later on
 */
 
+const LIMIT_DISABLED_VAL = -1
+
 const ENV = {
   ALLOW_INTROSPECTION: false,
   ALLOW_GRAPHIQL: false,
-  DEPTH_LIMIT: -1,
+  DEPTH_LIMIT: LIMIT_DISABLED_VAL,
   USERS_LIMIT: Number.MAX_SAFE_INTEGER,
+  BATCH_LIMIT:LIMIT_DISABLED_VAL,
+  LOGIN_LIMIT:LIMIT_DISABLED_VAL,
+  CHNGPSWD_LIMIT:LIMIT_DISABLED_VAL,
 };
 
 const handleBoolean = (key, variable) => {
@@ -55,4 +60,4 @@ const printENV = () => {
   }
 };
 
-export { ENV, printENV };
+export { ENV, printENV, LIMIT_DISABLED_VAL };

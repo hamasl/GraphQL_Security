@@ -131,3 +131,6 @@ dist
 
 # MacOS
 .DS_Store
+
+# Dev container
+.devcontainer
