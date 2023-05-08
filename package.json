@@ -26,8 +26,7 @@
     "graphql-depth-limit": "^1.1.0",
     "graphql-no-alias": "^3.0.3",
     "graphql-no-batched-queries": "^2.0.2",
-    "randomstring": "^1.2.3",
-    "unique-names-generator": "^4.7.1"
+    "randomstring": "^1.2.3"
   },
   "devDependencies": {
     "prettier": "^2.8.8"

@@ -18,6 +18,10 @@ const ENV = {
   BATCH_LIMIT:LIMIT_DISABLED_VAL,
   LOGIN_LIMIT:LIMIT_DISABLED_VAL,
   CHNGPSWD_LIMIT:LIMIT_DISABLED_VAL,
+  // Non -1 default values because these need to be used otherwise server is useless
+  NUM_OF_FRIENDS: 1,
+  NUM_OF_USERS: 100,
+  GENERATED_PASSWORD_LENGTH:  4,
 };
 
 const handleBoolean = (key, variable) => {
