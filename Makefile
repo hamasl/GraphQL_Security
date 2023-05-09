@@ -9,6 +9,9 @@ build:
 run:
 	docker run --cpus=$(cpus) -m $(memory) --memory-swap=$(memory) --rm -p 8080:8080 --name $(name) $(name)
 
+run_unlimited:
+	docker run --rm -p 8080:8080 --name $(name) $(name)
+
 app:
 	$(MAKE) build
 	$(MAKE) run
