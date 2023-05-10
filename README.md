@@ -6,25 +6,27 @@ Project base inspired by: https://graphql.org/graphql-js/running-an-express-grap
 
 ## .env
 
-The server security in terms of GraphQL related issues, e.g., batched queries, can be configured via the .env file. Other issues such as proper authentication and authorization is outside the scope of this task as that applies to all web servers with user systems. A safe configuration can be:
+The server security in terms of GraphQL related issues, e.g., batched queries, can be configured via the .env file. Other issues such as proper authentication and authorization is outside the scope of this task as that applies to all web servers with user systems.
+
+### Secure configuration:
 
 ```
 # Security parameters
 ALLOW_INTROSPECTION="false"
-ALLOW_GRAPHIQL="false"
-DEPTH_LIMIT="5"
-USERS_LIMIT="1000"
+ALLOW_GRAPHIQL="true"
+DEPTH_LIMIT="4"
+USERS_LIMIT="100"
 BATCH_LIMIT="5"
 LOGIN_LIMIT="1"
 CHNGPSWD_LIMIT="1"
 
 # Generated mock users parameters
 NUM_OF_FRIENDS="1"
-NUM_OF_USERS="100"
+NUM_OF_USERS="10000"
 GENERATED_PASSWORD_LENGTH="3"
 ```
 
-Meanwhile, an insecure configuration usable for testing can be this:
+### Insecure configuration for pentesting:
 
 ```
 # Security parameters
@@ -45,3 +47,5 @@ GENERATED_PASSWORD_LENGTH="3"
 ## Package express-graphql deprecated
 
 NEVER EVER USE THIS package for actual development as it is deprecated. Unfortunately, very little documentation was available online for the alternative graphql-http, making it hard to use. Along, with the main gist of this task being to look at exploitations, it was decided that the deprecated express-graphql would be kept.
+
+## TODO add run instructions
