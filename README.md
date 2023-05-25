@@ -1,4 +1,6 @@
-# GraphQL_Security
+# GraphQL Security
+
+By: [EmilYun](https://github.com/EmilYun) and [hamasl](https://github.com/hamasl)
 
 A project for the course TDA 602 Language based security at Chalmers. Projects looks at vulnerabilities in GraphQL, and also how to exploit and patch them.
 
