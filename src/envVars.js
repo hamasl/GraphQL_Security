@@ -10,6 +10,7 @@ dotenv.config();
 
 const LIMIT_DISABLED_VAL = -1;
 
+// Defining the expected fields, and setting a default value for them
 const ENV = {
   ALLOW_INTROSPECTION: false,
   ALLOW_GRAPHIQL: false,
@@ -24,6 +25,9 @@ const ENV = {
   GENERATED_PASSWORD_LENGTH: 4,
 };
 
+/**
+ * Makes sure that the boolean variables have been set correctly
+ */
 const handleBoolean = (key, variable) => {
   if (variable === "true") {
     ENV[key] = true;
@@ -36,6 +40,9 @@ const handleBoolean = (key, variable) => {
   }
 };
 
+/**
+ * Makes sure that the integer variables have been set correctly
+ */
 const handleInt = (key, variable) => {
   const val = parseInt(variable);
   if (val === NaN) {
@@ -46,6 +53,8 @@ const handleInt = (key, variable) => {
   ENV[key] = val;
 };
 
+// Goes through all the predefined attributes set in the ENV object
+// and assigns the correct values from the .env file.
 for (let val in ENV) {
   const variable = process.env[val];
   if (typeof ENV[val] === "boolean") {
@@ -55,8 +64,12 @@ for (let val in ENV) {
   }
 }
 
+// Freezes to prevent modification
 Object.freeze(ENV);
 
+/**
+ * Function to print out the environment variable states
+ */
 const printENV = () => {
   console.log("Environment variables: ");
   for (let val in ENV) {

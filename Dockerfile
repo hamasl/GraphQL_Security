@@ -11,6 +11,7 @@ RUN npm install --legacy-peer-deps
 
 COPY . .
 
+# Allows connections on port 8080
 EXPOSE 8080
 
 CMD ["npm", "start"]

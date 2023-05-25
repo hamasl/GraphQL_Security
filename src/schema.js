@@ -1,5 +1,7 @@
 import { buildSchema } from "graphql";
 
+// Defining the schema for GraphQL in order to set restrictions
+// on what action can be done by a client
 const schema = buildSchema(`
     type User {
         id: Int
