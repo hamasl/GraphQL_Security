@@ -84,7 +84,20 @@ docker build -t tda602_graphql .
 docker run --cpus=1 -m 100m --memory-swap=100m --rm -p 8080:8080 --name tda602_graphql tda602_graphql
 ```
 
-To kille the container simply do:
+The GraphQL server should be accessible via the endpoint:
+
+```
+http://localhost:8080/graphql
+```
+
+which will provided the GraphiQL GUI if enabled in **.env**.
+Otherwise, one can run a test query via the URL:
+
+```
+http://localhost:8080/graphql?query={user(id:1){id}}
+```
+
+To kill the container simply do:
 
 ```
 make kill
