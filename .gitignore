@@ -134,3 +134,7 @@ dist
 
 # Dev container
 .devcontainer
+
+
+# Node
+package-lock.json
